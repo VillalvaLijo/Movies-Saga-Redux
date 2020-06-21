@@ -6,9 +6,18 @@ import Home from '../Home/Home';
 import Edit from '../Edit/Edit';
 import Details from '../Details/Details';
 import './App.css';
+//import reactRedux and import saga
+import {connect} from 'react-redux';
 
 class App extends Component {
   // Renders the entire app on the DOM
+
+  //write component did mount to put dispatch type: GET_MOVIES to grab movies from 
+  //server side
+  componentDidMount() {
+    this.props.dispatch({type: 'GET_MOVIES'});
+  }
+
   render() {
     return (
       <div className="App">
@@ -25,4 +34,5 @@ class App extends Component {
   }
 }
 
-export default App;
+//connect component to redux
+export default connect()(App);
