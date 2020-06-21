@@ -38,4 +38,5 @@ if (process.env.DATABASE_URL) {
     };
 }
 
+//this pool is shared with all other modules
 module.exports = new pg.Pool(config);
