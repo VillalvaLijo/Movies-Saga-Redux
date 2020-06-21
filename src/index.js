@@ -24,7 +24,7 @@ function* getMovies(){
     try{
         const moviesResponse = yield axios.get('/movies');
         //write a put request to send movie data to redux store
-        yield put({type: 'SET_MOVIES', payload: moviesResponse});
+        yield put({type: 'SET_MOVIES', payload: moviesResponse.data});
     } catch(error){
         console.log('error w post in index.js, error:', error);
     }

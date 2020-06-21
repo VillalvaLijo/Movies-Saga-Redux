@@ -14,9 +14,9 @@ class App extends Component {
 
   //write component did mount to put dispatch type: GET_MOVIES to grab movies from 
   //server side
-  componentDidMount() {
-    this.props.dispatch({type: 'GET_MOVIES'});
-  }
+  // componentDidMount() {
+    
+  // }
 
   render() {
     return (
