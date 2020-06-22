@@ -33,15 +33,26 @@ class Details extends Component{
         console.log(genreArray);
     }
 
+    //create a function to route back to the home page when user clicks back to list
+    backToList(){
+        console.log("backToList Clicked");
+        this.props.history.push('/home');
+    }
+
     render(){
         return(
             <div>
                 <img src ={this.props.reduxState.details.poster}/>
                 <h2>{this.props.reduxState.details.title}</h2>
                 {/* <p>{JSON.stringify(this.props.reduxState.genres)}</p> */}
-                <h4>{this.state.genreArray}</h4>
+                {this.state.genreArray.map((genre)=>
+                    <h4 key = {genre}>{genre}</h4>
+                )}
+                
+                 {/* <h4>{this.state.genreArray}</h4> */}
                 <p>{this.props.reduxState.details.description}</p>
-
+                <button type='button' onClick = {this.backToList}>Back to List</button>
+                <button type='button'>Edit</button>
             </div>
         )
     }
