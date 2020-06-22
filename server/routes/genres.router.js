@@ -8,9 +8,11 @@ const pool = require('../modules/pool');
 //create a router
 router.get('/', (req, res) =>{
     console.log('GET /genres inside genres.router.js');
-    pool.query(`SELECT * from "genres" 
-    JOIN "movies_genres" ON "genres"."id"="movies_genres"."genres_id"
-    JOIN "movies" ON "movies_genres"."movie_id"="movies"."id";`).then((result) =>{
+    // pool.query(`SELECT * from "genres" 
+    // JOIN "movies_genres" ON "genres"."id"="movies_genres"."genres_id"
+    // JOIN "movies" ON "movies_genres"."movie_id"="movies"."id";`).then((result) =>{
+    pool.query(`SELECT * FROM "movies_genres"
+    JOIN "genres" ON "movies_genres"."genres_id"="genres"."id";`).then((result)=>{
         res.send(result.rows);
     }).catch((error) => {
         console.log('Error with GET /movies', error)

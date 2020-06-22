@@ -6,6 +6,10 @@ import {connect} from 'react-redux';
 class Details extends Component{
     //access the movie in details by passing the id of the movie on the click.
 
+    componentDidMount(){
+
+    }
+
     render(){
         return(
             <div>
